@@ -49,7 +49,10 @@ WITH number_sequence AS (
 INSERT INTO wastes (waste_type_id, control_word_id)
 SELECT CEILING((RAND(CHECKSUM(NEWID())) * 3)),FLOOR(RAND(CHECKSUM(NEWID()))*(10-4+1))+4
 FROM number_sequence
-OPTION (MAXRECURSION 32767)
+OPTION (MAXRECURSION 32767);
+
+
+
 
 -- container_types fill --
 WITH number_sequence AS (
