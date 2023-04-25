@@ -1,4 +1,4 @@
-USE [Esencial Verde]
+USE [Esencial Verde];
 
 -- alt_collectors fill --
 WITH number_sequence AS (

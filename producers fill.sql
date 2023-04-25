@@ -1,4 +1,4 @@
-USE [Esencial Verde]
+USE [Esencial Verde];
 
 --corporations fill --
 INSERT INTO corporations (name)
