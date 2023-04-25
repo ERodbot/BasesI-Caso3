@@ -25,7 +25,7 @@ WITH number_sequence AS (
   UNION ALL
   SELECT n+1
   FROM number_sequence
-  WHERE n < 1000
+  WHERE n < 10000
 )
 INSERT INTO addresses(location, zip_code, district_id)
 SELECT geography::STGeomFromText('POINT(' + CAST(RAND() * 360 - 180 AS VARCHAR(20)) + ' ' + CAST(RAND(CHECKSUM(NEWID())) * 180 - 90 AS VARCHAR(20)) + ')', 4326),
@@ -39,9 +39,9 @@ WITH number_sequence AS (
   UNION ALL
   SELECT n+1
   FROM number_sequence
-  WHERE n < 1000
+  WHERE n < 8000
 )
 INSERT INTO ev_sites (name, address_id)
-SELECT CONCAT('ev_site', CEILING(RAND(CHECKSUM(NEWID())) * 1000) + 1), FLOOR(RAND(CHECKSUM(NEWID()))*(100-1+1)+1)
+SELECT CONCAT('ev_site', CEILING(RAND(CHECKSUM(NEWID())) * 1000) + 1), FLOOR(RAND(CHECKSUM(NEWID()))*(11000-1+1)+1)
 FROM number_sequence
 OPTION (MAXRECURSION 32767)
