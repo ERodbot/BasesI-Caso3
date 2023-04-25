@@ -1,4 +1,4 @@
-wayUSE [Esencial Verde];
+USE [Esencial Verde];
 
 --corporations fill --
 INSERT INTO corporations (name)
@@ -10,7 +10,7 @@ WITH number_sequence AS (
   UNION ALL
   SELECT n+1
   FROM number_sequence
-  WHERE n < 1000
+  WHERE n < 20000
 )
 INSERT INTO producers (name, env_score, corporation_id, address_id, computer, username, checksum, created_at, updated_at)
 SELECT CONCAT('producer', CEILING(RAND(CHECKSUM(NEWID())) * 1000) + 1), FLOOR(RAND(CHECKSUM(NEWID()))*100)+1, 1, FLOOR(RAND(CHECKSUM(NEWID()))*1000)+1, 'me', 'root', HASHBYTES('SHA2_256', 'hola mundo'), GETDATE(), GETDATE()
