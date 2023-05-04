@@ -1,7 +1,7 @@
 USE [Esencial Verde];
 -- languages fill--
 INSERT INTO languages(name)
-VALUES ('Español');
+VALUES ('Espa ol');
 
 -- control_words for waste_types and wastes fill--
 INSERT INTO control_words (control_word_id)

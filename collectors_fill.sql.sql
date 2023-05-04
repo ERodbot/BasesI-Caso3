@@ -24,3 +24,6 @@ INSERT INTO ev_collectors (name, ev_site_id)
 SELECT CONCAT('ev_collector', CEILING(RAND(CHECKSUM(NEWID())) * 10000) + 1), FLOOR(RAND(CHECKSUM(NEWID()))*50000)+1
 FROM number_sequence
 OPTION (MAXRECURSION 32767);
+
+
+SELECT * FROM ev_collectors;

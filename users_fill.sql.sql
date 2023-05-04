@@ -97,25 +97,22 @@ VALUES
 
 
 
-DELETE FROM users
-WHERE user_id > 0;
 
 WITH number_sequence AS (
   SELECT 1 as n
   UNION ALL
   SELECT n+1
   FROM number_sequence
-  WHERE n < 1000
+  WHERE n < 20000
 )
-INSERT INTO Users (name, last_name, password, position, producer_id, alt_collector_id, ev_collector_id, enabled, created_at, updated_at, computer, username, checksum)
+INSERT INTO Users (name, last_name, password, position, producer_id, ev_site_id, enabled, created_at, updated_at, computer, username, checksum)
 SELECT 
 	(SELECT TOP 1 Name FROM @Names ORDER BY CHECKSUM(NEWID(), Name) % (SELECT COUNT(*) FROM @Names)), 
     (SELECT TOP 1 LastName FROM @LastNames ORDER BY NEWID()), 
-    CONCAT('pass', CEILING(RAND(CHECKSUM(NEWID())) * 1000) + 1),
+    CONCAT('pass', CEILING(RAND(CHECKSUM(NEWID())) * 10000) + 1),
     (SELECT TOP 1 Position FROM @Positions ORDER BY NEWID()), 
-    CEILING(RAND(CHECKSUM(NEWID())) * 1000) + 1, 
-    CEILING(RAND(CHECKSUM(NEWID())) * 1000) + 1, 
-    CEILING(RAND(CHECKSUM(NEWID())) * 1000) + 1, 
+    CEILING(RAND(CHECKSUM(NEWID())) * 10000) + 5000, 
+    CEILING(RAND(CHECKSUM(NEWID())) * 10000) + 5000,  
     1, 
     DATEADD(day, ABS(CHECKSUM(NEWID())) % 365, DATEFROMPARTS(2023, 1, 1)),  
     DATEADD(day, ABS(CHECKSUM(NEWID())) % 365, DATEFROMPARTS(2023, 1, 1)), 

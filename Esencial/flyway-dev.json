@@ -1,0 +1,28 @@
+{
+  "version": "2.0",
+  "name": "Esencial",
+  "id": "f127ee78-add6-4eff-be76-c1983f719b80",
+  "databaseType": "SqlServer",
+  "development": {
+    "scriptsFolder": "./schema-model"
+  },
+  "deployment": {
+    "flywayConfFiles": [
+      "./flyway.conf"
+    ],
+    "targetDatabases": [
+      {
+        "connectionProvider": {
+          "type": "UsernamePassword",
+          "url": "jdbc:sqlserver://localhost:1433;authentication=sqlPassword;databaseName=Esencial;encrypt=true;trustServerCertificate=true",
+          "username": "DBUSER",
+          "password": {
+            "secretType": "DefaultSecretStore",
+            "name": "Flyway Desktop 8d5b69c3-67ee-420d-b25b-6cfc6954f24a"
+          }
+        },
+        "displayName": "Esencial"
+      }
+    ]
+  }
+}
